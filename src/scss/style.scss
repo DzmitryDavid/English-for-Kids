@@ -1,0 +1,42 @@
+@import 'mixins';
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i, 700"); 
+
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+  *::before, *::after {
+        box-sizing: border-box;
+    }
+    body, html {
+        // width: 100%;
+        font-family: 'Fredoka One', cursive;
+        font-size: 1rem;
+        background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+        z-index: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+
+ul, li {
+    list-style-type: none;
+}
+:root {
+    font-size: 10px;
+}
+.container {
+    width: 1500px;
+    margin: 0 auto;
+    
+}
+
+@import 'header';
+@import 'button';
+@import 'cards';
+@import 'categories';
+@import 'divider';
+@import 'overlay';
+@import 'media';

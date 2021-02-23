@@ -1,0 +1,30 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem;
+    &__title {
+        // transition: all ease 0.6s; 
+        text-transform: uppercase;
+        color: #8fd3f4;
+        font-size: 5.2rem;
+        animation: 10s ease infinite alternate title;
+        &:hover {
+            cursor:pointer;
+        }
+    }
+    &__button {
+        margin-right: 2rem;
+    }
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+}
+@keyframes title {
+    0% { color: #8fd3f4; }
+    25% { color: rgba(255, 143, 222, 1); }
+    50% {color: #8fd3f4;}
+    75% {color: #3daee7;}
+    100% { color:rgba(255, 143, 222, 1) }
+}

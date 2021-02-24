@@ -1,19 +1,25 @@
 import cards from './cards.js';
 
 'use strict';
+
+
 const getCardWrapper = () => document.querySelector('.cards__wrapper');
 const getCategoryBtn = () => document.querySelector('.big-button__categories');
 const getCategorySection = () => document.querySelector('.categories');
 const getCategoryCloseBtn = () => document.querySelector('.categories__close');
 const getOverlay = () => document.querySelector('.overlay');
 const categoriesMenu = () => document.querySelector('.categories__list');
-// const getPlayButton = () => document.querySelector('.big-button__play');
+const getPlayButton = () => document.querySelector('.big-button__play');
+const starsWrapper = document.querySelector('.stars');
 const asideMainLink = document.querySelector('.categories__list-item');
 const headerTitle = document.querySelector('.header__title');
+const startBtn = document.querySelector('.start__button');
+console.log(startBtn);
+
 
 
 let isPlay = false;
-// console.log(isPlay);
+console.log(isPlay);
 
 const imgArr = ['img/dive.jpg', 'img/dive.jpg', 'img/main/AnimalsA.png', 'img/main/AnimalsB.png', 'img/dive.jpg', 'img/dive.jpg'];
 
@@ -28,8 +34,10 @@ const removeSet = () => {
 
 function renderMainSection() {
 	removeSet();
+	startBtn.classList.remove('show-btn');
+	getPlayButton().textContent = 'play mode';
 	const cardWrapper = getCardWrapper();
-	
+
 	cards[0].forEach((element, i) => {
 		const card = document.createElement('div');
 		card.classList.add('cards__scene');
@@ -43,31 +51,60 @@ function renderMainSection() {
 				<div class="card__face-word">
 				<span>${element}</span> 					
 			</div> `;
+
 		card.addEventListener('click', (e) => {
 			removeSet();
-			console.log(e.target.closest('.card').getAttribute('data-id'));
 			const idCard = +e.target.closest('.card').getAttribute('data-id') + 1;
 			console.log(idCard);
-			
-			renderCardsSections(idCard);
-		});
-		
 
+			renderCardsSections(idCard);
+			
+		});
 		cardWrapper.append(card);
-		
 	});
+	if (isPlay) {
+		isPlayModeRender();
+
+	}
 }
 renderMainSection();
 
+function isPlayModeRender() {
+	const cardPlay = document.querySelectorAll('.card');
+	
+	cardPlay.forEach(item => {
+		item.classList.add('play');
+
+	});
+	getPlayButton().textContent = 'Train mode';
+	// starsWrapper.innerHTML += `<img src="/src/icons/star-win.svg"/>`;
+}
 
 function renderCardsSections(setNum) {
 	removeSet();
-	cards[setNum].forEach((element) => {
+	
+	cards[setNum].forEach((element, i) => {
 		const card = document.createElement('div');
+		const cardPlay = document.createElement('div');
 		card.classList.add('cards__scene');
+		cardPlay.classList.add('cards__scene');
+
+		cardPlay.innerHTML = `
+
+		<div data-id="${i}" class="card play">
+			<figure class="card__face-front">
+				<div class="card__face-img">
+					<img data-id="${i}" src="/src/${element.image}" alt=""> 
+				</div>
+			<div class="card__face-buttons">
+					<audio data-id="${i}" class="audio-player" src="/src/${element.audioSrc}"></audio> 						
+			</div>
+		</div>
+				</figure>
+				`;
 
 		card.innerHTML = `
-            <div class="card">
+            <div data-id="${i}" class="card">
             <figure class="card__face-front">
             <div class="card__face-img">
                 <img src="/src/${element.image}" alt=""> 
@@ -97,27 +134,48 @@ function renderCardsSections(setNum) {
             </div>
             
                 `;
-		
-		getCardWrapper().append(card);
-		audioPlay();
+
+		if (isPlay) {
+			getCardWrapper().append(cardPlay);
+			startBtn.classList.add('show-btn');
+			getUserTargetCard(cardPlay);
+		} else {
+			startBtn.classList.remove('show-btn');
+			getCardWrapper().append(card);
+		}
 	});
+}
+
+function getUserTargetCard(card) {
+	const userTarget = [];
+	card.addEventListener('click', (e) => {
+		userTarget.push(e.target.getAttribute('data-id'));
+	});
+	
+	return userTarget;
 	
 }
 
 function audioPlay() {
-	if (isPlay) {
-		const sounds = document.querySelectorAll('.audio-player');
+	const cardsAudio = document.querySelectorAll('.audio-player');
 
-		let counter = 0;
-		let soundInterval = setInterval(() => {
-			sounds[counter].play();
-			counter ++;
-			if (counter >= sounds.length) {
-				clearInterval(soundInterval);
-			}
-		}, 2400);
-	}
+	const playTimer = setInterval(() => {
+		let counter = Math.floor(Math.random() * cardsAudio.length );
+		cardsAudio[counter].play();
+		
+	}, 2600);
+
 }
+
+const categoryShow = () => {
+	getCategorySection().classList.toggle('show');
+	getOverlay().classList.add('show');
+};
+const categoryHide = () => {
+	getCategorySection().classList.remove('show');
+	getOverlay().classList.remove('show');
+};
+
 
 function renderAsideCategoriesMenu() {
 	cards[0].forEach((item, i) => {
@@ -125,7 +183,7 @@ function renderAsideCategoriesMenu() {
 		linkItem.classList.add('categories__list-item');
 		linkItem.textContent = item;
 		linkItem.setAttribute('data-id', i);
-		
+
 		linkItem.addEventListener('click', (e) => {
 			console.log(e.target);
 			const idCard = +e.target.closest('.categories__list-item').getAttribute('data-id') + 1;
@@ -138,53 +196,11 @@ function renderAsideCategoriesMenu() {
 renderAsideCategoriesMenu();
 
 
-
-// function renderPlayMode(setNum) {
-// 	removeSet();
-// 	cards[setNum].forEach((element) => {
-// 		const card = document.createElement('div');
-// 		card.classList.add('cards__scene');
-
-// 		card.innerHTML = `
-//             <div class="card play">
-//             <figure class="card__face-front">
-//             <div class="card__face-img">
-//                 <img src="/src/${element.image}" alt=""> 
-//             </div>					
-// 			<div class="card__face-buttons">
-//                 <div class="card__face-buttons-rotate">
-// 			</div>
-//                 <div class="card__face-buttons-audio"> 							
-													
-//                     <audio class="audio-player" src="/src/${element.audioSrc}"></audio> 						
-//                 </div>
-//             </div>
-//         </figure>
-//                 `;
-
-// 		getCardWrapper().append(card);		
-		
-// 	});
-// }
-
-
-const categoryShow = () => {
-	getCategorySection().classList.toggle('show');
-	getOverlay().classList.add('show');
-};
-const categoryHide = () => {
-	getCategorySection().classList.remove('show');
-	getOverlay().classList.remove('show');
-};
-
-
 function addListeners() {
 	const cardWrapper = getCardWrapper();
 	cardWrapper.addEventListener('click', (e) => {
-		
+
 		if (e.target.classList.contains('audio')) {
-			
-			
 			e.target.parentElement.lastElementChild.play();
 		}
 	});
@@ -203,31 +219,38 @@ function addListeners() {
 			e.target.parentElement.classList.contains('card__face-back')) {
 
 			e.target.closest('.card').classList.remove('is-flipped');
-		} 
+		}
 	});
 
 	cardWrapper.addEventListener('click', () => {
 		document.querySelectorAll('.is-flipped').forEach(card => {
 			setTimeout(() => {
 				card.classList.remove('is-flipped');
-			}, 2400);
+			}, 2600);
 		});
 	});
+
+	const playModeToggle = () => {
+		isPlay = !isPlay;
+		console.log(isPlay);
+	};
+
+	function playButtonListeners() {
+		playModeToggle();
+		renderMainSection();
+
+	}
 	
-	// const playModeToggle = () => {
-	// 	isPlay = !isPlay;
-	// 	console.log(isPlay);
-		
-	// };
-	
+
 	getCategoryBtn().addEventListener('click', categoryShow);
 	getCategoryCloseBtn().addEventListener('click', categoryHide);
 	getOverlay().addEventListener('click', categoryHide);
 	asideMainLink.addEventListener('click', renderMainSection);
 	asideMainLink.addEventListener('click', categoryHide);
 	headerTitle.addEventListener('click', renderMainSection);
-	// getPlayButton().addEventListener('click', playModeToggle);
-	
+	getPlayButton().addEventListener('click', playButtonListeners);
+	startBtn.addEventListener('click', audioPlay);
+
 }
 addListeners();
 

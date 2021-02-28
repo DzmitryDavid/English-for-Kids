@@ -77,7 +77,7 @@ function isPlayModeRender() {
 
 	});
 	getPlayButton().textContent = 'Train mode';
-	// starsWrapper.innerHTML += `<img src="/src/icons/star-win.svg"/>`;
+	// starsWrapper.innerHTML += `<img src="src/icons/star-win.svg"/>`;
 }
 
 function renderCardsSections(setNum) {
@@ -97,7 +97,7 @@ function renderCardsSections(setNum) {
 					<img data-id="${i}" src="src/${element.image}" alt=""> 
 				</div>
 			<div class="card__face-buttons">
-					<audio data-id="${i}" class="audio-player" src="src${element.audioSrc}"></audio> 						
+					<audio data-id="${i}" class="audio-player" src="src/${element.audioSrc}"></audio> 						
 			</div>
 		</div>
 				</figure>
@@ -156,7 +156,7 @@ function getUserTargetCard(card) {
 	
 }
 
-// function audioPlay() {
+function audioPlay() {
 // 	const cardsAll = document.querySelectorAll('.cards__scene');
 // 	const cardsAudio = document.querySelectorAll('.audio-player');
 	
@@ -183,12 +183,12 @@ function getUserTargetCard(card) {
 	// 		// console.log(audioTrackList);
 	// 		// cardsAudio.audioTrack
 			
-	// 		starsWrapper.innerHTML += '<img src="/src/icons/star-win.svg"/>';
+	// 		starsWrapper.innerHTML += '<img src="src/icons/star-win.svg"/>';
 			
 	// 	});
 	// });
 
-// }
+}
 
 const categoryShow = () => {
 	getCategorySection().classList.toggle('show');

@@ -94,10 +94,10 @@ function renderCardsSections(setNum) {
 		<div data-id="${i}" class="card play">
 			<figure class="card__face-front">
 				<div class="card__face-img">
-					<img data-id="${i}" src="/src/${element.image}" alt=""> 
+					<img data-id="${i}" src="src/${element.image}" alt=""> 
 				</div>
 			<div class="card__face-buttons">
-					<audio data-id="${i}" class="audio-player" src="src/${element.audioSrc}"></audio> 						
+					<audio data-id="${i}" class="audio-player" src="src${element.audioSrc}"></audio> 						
 			</div>
 		</div>
 				</figure>
@@ -156,20 +156,20 @@ function getUserTargetCard(card) {
 	
 }
 
-function audioPlay() {
-	const cardsAll = document.querySelectorAll('.cards__scene');
-	const cardsAudio = document.querySelectorAll('.audio-player');
+// function audioPlay() {
+// 	const cardsAll = document.querySelectorAll('.cards__scene');
+// 	const cardsAudio = document.querySelectorAll('.audio-player');
 	
 	
-	cardsAudio.forEach(element => {
-		const getId = element.getAttribute('data-id');
-		element.addEventListener('click', (e) => {
-			console.log(e.target);
-			e.target.element.play();
-		});
-		// console.log(getId);
+// 	cardsAudio.forEach(element => {
+// 		const getId = element.getAttribute('data-id');
+// 		element.addEventListener('click', (e) => {
+// 			console.log(e.target);
+// 			e.target.element.play();
+// 		});
+// 		// console.log(getId);
 		
-	});
+// 	});
 	// let counter = Math.floor(Math.random() * cardsAudio.length );
 	// cardsAudio[counter].play();
 	// const playTimer = setInterval(() => {
@@ -188,7 +188,7 @@ function audioPlay() {
 	// 	});
 	// });
 
-}
+// }
 
 const categoryShow = () => {
 	getCategorySection().classList.toggle('show');

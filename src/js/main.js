@@ -10,7 +10,7 @@ const getCategoryCloseBtn = () => document.querySelector('.categories__close');
 const getOverlay = () => document.querySelector('.overlay');
 const categoriesMenu = () => document.querySelector('.categories__list');
 const getPlayButton = () => document.querySelector('.big-button__play');
-const starsWrapper = document.querySelector('.stars');
+// const starsWrapper = document.querySelector('.stars');
 const asideMainLink = document.querySelector('.categories__list-item');
 const headerTitle = document.querySelector('.header__title');
 const startBtn = document.querySelector('.start__button');
@@ -46,7 +46,7 @@ function renderMainSection() {
 			<div data-id="${i}" class="card">
 			<figure class="card__face-front">
 			<div class="card__face-img">
-					<img class="main__img" src="/src/${imgArr[i]}" alt=""> 
+					<img class="main__img" src="src/${imgArr[i]}" alt=""> 
 				</div>				
 				<div class="card__face-word">
 				<span>${element}</span> 					
@@ -97,7 +97,7 @@ function renderCardsSections(setNum) {
 					<img data-id="${i}" src="/src/${element.image}" alt=""> 
 				</div>
 			<div class="card__face-buttons">
-					<audio data-id="${i}" class="audio-player" src="/src/${element.audioSrc}"></audio> 						
+					<audio data-id="${i}" class="audio-player" src="src/${element.audioSrc}"></audio> 						
 			</div>
 		</div>
 				</figure>
@@ -107,25 +107,25 @@ function renderCardsSections(setNum) {
             <div data-id="${i}" class="card">
             <figure class="card__face-front">
             <div class="card__face-img">
-                <img src="/src/${element.image}" alt=""> 
+                <img src="src/${element.image}" alt=""> 
             </div>					
             <div class="card__face-word">
                 <span>${element.word}</span> 					
             </div> 					
             <div class="card__face-buttons">
                 <div class="card__face-buttons-rotate">
-                    <img class="rotate" src="/src/icons/rotate.svg" alt="">
+                    <img class="rotate" src="src/icons/rotate.svg" alt="">
                 </div>
                 <div class="card__face-buttons-audio"> 							
-						<img class="audio" src="/src/icons/audio.svg" alt=""> 							
-                    <audio class="audio-player" src="/src/${element.audioSrc}"></audio> 						
+						<img class="audio" src="src/icons/audio.svg" alt=""> 							
+                    <audio class="audio-player" src="src/${element.audioSrc}"></audio> 						
                 </div>
             </div>
         </figure>
 
         <div class="card__face-back">
                 <div class="card__face-back-img">
-                    <img src="/src/${element.image}" alt=""> 
+                    <img src="src/${element.image}" alt=""> 
                 </div>					
                 <div class="card__face-word">
                 <span>${element.translation}</span> 					

@@ -218,6 +218,9 @@
             justify-content: center;
         }
     }
+    .card__face-word span {
+        font-size: 25px;
+    }
 }
 @media (max-width: 455px) {
     .container {
@@ -241,5 +244,9 @@
                 margin-bottom: 2rem;
             }
         }  
+    }
+    .card__face {
+
+        font-size: 25px;
     }
 }

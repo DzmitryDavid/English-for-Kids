@@ -305,49 +305,49 @@ const cards = [
 			word: 'orange',
 			translation: 'апельсин',
 			image: 'img/fruits/orange.png',
-			audioSrc: 'audio/sad.mp3'
+			audioSrc: 'audio/orange.mp3'
 		},
 		{
 			word: 'avocado',
 			translation: 'авокадо',
 			image: 'img/fruits/avocado.png',
-			audioSrc: 'audio/angry.mp3'
+			audioSrc: 'audio/avocado.mp3'
 		},
 		{
 			word: 'grape',
 			translation: 'виноград',
 			image: 'img/fruits/grape.png',
-			audioSrc: 'audio/happy.mp3'
+			audioSrc: 'audio/grape.mp3'
 		},
 		{
 			word: 'pineapple',
 			translation: 'ананас',
 			image: 'img/fruits/pineapple.png',
-			audioSrc: 'audio/tired.mp3'
+			audioSrc: 'audio/pineapple.mp3'
 		},
 		{
 			word: 'persimmon',
 			translation: 'хурма',
 			image: 'img/fruits/persimmon.png',
-			audioSrc: 'audio/surprised.mp3'
+			audioSrc: 'audio/persimmon.mp3'
 		},
 		{
 			word: 'blueberries',
 			translation: 'черника',
 			image: 'img/fruits/Blueberries.png',
-			audioSrc: 'audio/scared.mp3'
+			audioSrc: 'audio/blueberries.mp3'
 		},
 		{
 			word: 'strawberry',
 			translation: 'клубника',
 			image: 'img/fruits/strawberry.png',
-			audioSrc: 'audio/smile.mp3'
+			audioSrc: 'audio/strawberry.mp3'
 		},
 		{
 			word: 'watermelon',
 			translation: 'арбуз',
 			image: 'img/fruits/watermelon.png',
-			audioSrc: 'audio/laugh.mp3'
+			audioSrc: 'audio/watermelon.mp3'
 		}
 	],
 	

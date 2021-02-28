@@ -21,7 +21,7 @@ console.log(startBtn);
 let isPlay = false;
 console.log(isPlay);
 
-const imgArr = ['img/dive.jpg', 'img/dive.jpg', 'img/main/AnimalsA.png', 'img/main/AnimalsB.png', 'img/dive.jpg', 'img/dive.jpg'];
+const imgArr = ['img/main/actionsA.png', 'img/main/actionsB.png', 'img/main/AnimalsA.png', 'img/main/AnimalsB.png', 'img/main/clothes.png', 'img/main/emotions.png','img/main/fruits.png'];
 
 
 const removeSet = () => {
@@ -157,13 +157,36 @@ function getUserTargetCard(card) {
 }
 
 function audioPlay() {
+	const cardsAll = document.querySelectorAll('.cards__scene');
 	const cardsAudio = document.querySelectorAll('.audio-player');
-
-	const playTimer = setInterval(() => {
-		let counter = Math.floor(Math.random() * cardsAudio.length );
-		cardsAudio[counter].play();
+	
+	
+	cardsAudio.forEach(element => {
+		const getId = element.getAttribute('data-id');
+		element.addEventListener('click', (e) => {
+			console.log(e.target);
+			e.target.element.play();
+		});
+		// console.log(getId);
 		
-	}, 2600);
+	});
+	// let counter = Math.floor(Math.random() * cardsAudio.length );
+	// cardsAudio[counter].play();
+	// const playTimer = setInterval(() => {
+		
+	// }, 2600);
+	
+
+	// cardsAll.forEach((card, ind) => {
+	// 	card.addEventListener('click', (e) => {
+	// 		let getId = +e.target.getAttribute('data-id');
+	// 		// console.log(audioTrackList);
+	// 		// cardsAudio.audioTrack
+			
+	// 		starsWrapper.innerHTML += '<img src="/src/icons/star-win.svg"/>';
+			
+	// 	});
+	// });
 
 }
 

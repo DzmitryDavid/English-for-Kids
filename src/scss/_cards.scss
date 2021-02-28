@@ -18,7 +18,6 @@
         
         &:hover {
             cursor: pointer;
-            // transform: rotateY(-180deg);
             transform: scale(1.01);
         }
     }
@@ -90,7 +89,6 @@
                 img {
                     width: 50px;
                     height: 50px;
-                   
                 }
             }
         }
@@ -118,7 +116,10 @@
                 
                 padding: 2rem;
                 backface-visibility:hidden;
-
+                img {
+                    width: 278px;
+                    height: 278px;
+                }
             }
         }
         &-word {
